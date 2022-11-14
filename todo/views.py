@@ -24,6 +24,11 @@ class TaskListView(generic.ListView):
     queryset = Task.objects.all().prefetch_related("tags")
 
 
+class TaskDetailView(generic.DetailView):
+    model = Task
+    queryset = Task.objects.all().prefetch_related("tags")
+
+
 class TaskCreateView(generic.CreateView):
     model = Task
     form_class = TaskForm
