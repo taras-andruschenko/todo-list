@@ -6,7 +6,7 @@ class Tag(models.Model):
 
 
 class Task(models.Model):
-    content = models.TextField
+    content = models.TextField(default="Please, fill me in")
     datetime = models.DateField(auto_now_add=True)
     deadline = models.DateField(blank=True, null=True)
     status = models.BooleanField(default=False)
