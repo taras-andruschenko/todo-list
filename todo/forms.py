@@ -8,7 +8,15 @@ class TaskForm(forms.ModelForm):
         queryset=Tag.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
+    deadline = forms.DateTimeField(
+        widget=forms.SelectDateWidget(),
+        input_formats="%y-%m-%d %H:%M"
+    )
 
     class Meta:
         model = Task
-        fields = "__all__"
+        fields = [
+            "content",
+            "deadline",
+            "tags",
+        ]
