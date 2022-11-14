@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ task.content }}
+    <a href="{% url 'todo:task-delete' pk=task.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'todo:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h1>
+  <p>Creating date: {{ task.datetime }}</p>
+  <h1>
+    Tags:
+  </h1>
+  <hr>
+  <ul>
+    {% for tag in task.tags.all %}
+      {{ tag }} <br>
+    {% endfor %}
+  </ul>
+{% endblock %}
